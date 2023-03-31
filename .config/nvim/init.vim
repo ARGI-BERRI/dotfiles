@@ -70,5 +70,9 @@ set ttyfast
 set gdefault
 set noerrorbells
 
+"
+" Color
+"
+let base16colorspace=256
 colorscheme ron
 syntax on
