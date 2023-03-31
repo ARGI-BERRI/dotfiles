@@ -74,7 +74,6 @@ set noerrorbells
 " Color
 "
 let base16colorspace=256
-colorscheme ron
 syntax on
 
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
@@ -85,5 +84,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin()
-  Plug 'chriskempson/base16-vim'
+  Plug 'rafamadriz/neon'
 call plug#end()
+
+colorscheme neon
