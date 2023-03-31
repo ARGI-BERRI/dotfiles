@@ -85,6 +85,9 @@ endif
 
 call plug#begin()
   Plug 'rafamadriz/neon'
+
+  Plug 'itchyny/lightline.vim'
+  Plug 'windwp/nvim-autopairs'
 call plug#end()
 
 colorscheme neon
