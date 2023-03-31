@@ -90,4 +90,8 @@ call plug#begin()
   Plug 'windwp/nvim-autopairs'
 call plug#end()
 
+let g:lightline = {
+  \ 'colorscheme': 'one',
+  \ }
+
 colorscheme neon
