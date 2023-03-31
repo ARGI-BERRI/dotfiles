@@ -1,0 +1,7 @@
+set completion-ignore-case on
+set colored-stats on
+set colored-completion-prefix on
+set visible-stats on
+
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
