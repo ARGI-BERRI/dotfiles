@@ -1,3 +1,4 @@
 .PHONY: install
 install:
-	cp -r .config ~/.config
+	@echo Installing dotfiles
+	@cp -r .config ~/.config
