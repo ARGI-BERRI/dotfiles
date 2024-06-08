@@ -70,3 +70,11 @@ set wildmenu
 set ttyfast
 set gdefault
 set noerrorbells
+
+colorscheme habamax
+
+hi Normal guibg=NONE ctermbg=NONE
+hi LineNr guibg=NONE ctermbg=NONE
+hi VertSplit guibg=NONE ctermbg=NONE
+hi Special guibg=NONE ctermbg=NONE
+hi Identifier guibg=NONE ctermbg=NONE
