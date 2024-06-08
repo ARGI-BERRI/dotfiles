@@ -39,11 +39,23 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 # dotfiles bin
 export PATH=$PATH:~/.dotfiles/bin
 
+# XDG
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
+
 # Rust
-. "$HOME/.cargo/env"
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+. "$CARGO_HOME/env"
 
 # asdf
-. "$HOME/.asdf/asdf.sh"
+export ASDF_DATA_DIR="$XDG_DATA_HOME"/asdf
+. "$ASDF_DATA_DIR/asdf.sh"
 
 # asdf - golang
 export PATH="$(go env GOPATH)/bin:$PATH"
+
+# GNU Parallel
+export PARALLEL_HOME="$XDG_CONFIG_HOME"/parallel

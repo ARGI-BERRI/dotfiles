@@ -1,13 +1,19 @@
 #!/bin/sh
 
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
+
 # Install deps to build Python
 sudo apt update; sudo apt install build-essential libssl-dev zlib1g-dev \
 libbz2-dev libreadline-dev libsqlite3-dev curl git \
 libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 
 # Install asdf
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
-. "$HOME/.asdf/asdf.sh"
+export ASDF_DATA_DIR="$XDG_DATA_HOME"/asdf
+git clone https://github.com/asdf-vm/asdf.git $ASDF_DATA_DIR --branch v0.14.0
+. "$ASDF_DATA_DIR/asdf.sh"
 
 # Install chezmoi
 asdf plugin add chezmoi && asdf install chezmoi 2.48.0 && asdf global chezmoi 2.48.0
@@ -22,8 +28,10 @@ asdf plugin add python && asdf install python 3.12.3 && asdf global python 3.12.
 asdf plugin add poetry && asdf install poetry 1.8.3 && asdf global poetry 1.8.3
 poetry config virtualenvs.in-project true
 
-# Install rustup
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+# Install Rust
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
 
 # Install cargo binaries
 cargo install --locked bat bottom du-dust duf eza fd-find procs zoxide
@@ -34,3 +42,5 @@ go install github.com/charmbracelet/glow@latest
 # Apply dotfiles via chezmoi
 chezmoi init https://github.com/ARGI-BERRI/chezmoi.git
 chezmoi apply
+
+echo "Please reload the shell to apply the change"

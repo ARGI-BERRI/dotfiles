@@ -6,5 +6,7 @@ if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
+export HISTFILE="$XDG_STATE_HOME/bash/history"
+
 # asdf
-. "$HOME/.asdf/completions/asdf.bash"
+. "$ASDF_DATA_DIR/completions/asdf.bash"
