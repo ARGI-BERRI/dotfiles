@@ -6,9 +6,11 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
 # Install deps to build Python
-sudo apt update; sudo apt install build-essential libssl-dev zlib1g-dev \
-libbz2-dev libreadline-dev libsqlite3-dev curl git \
-libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+sudo apt update; sudo apt install -y \
+    build-essential libssl-dev zlib1g-dev \
+    libbz2-dev libreadline-dev libsqlite3-dev curl git \
+    libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev \
+    jq bat duf fd-find fzf
 
 # Install asdf
 export ASDF_DATA_DIR="$XDG_DATA_HOME"/asdf
@@ -32,9 +34,10 @@ poetry config virtualenvs.in-project true
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
+. $CARGO_HOME/env
 
 # Install cargo binaries
-cargo install --locked bat bottom du-dust duf eza fd-find procs zoxide
+cargo install --locked du-dust eza fd-find procs zoxide
 
 # Install go binaries
 go install github.com/charmbracelet/glow@latest
