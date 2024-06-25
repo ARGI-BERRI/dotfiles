@@ -10,3 +10,6 @@ export HISTFILE="$XDG_STATE_HOME/bash/history"
 
 # asdf
 . "$ASDF_DATA_DIR/completions/asdf.bash"
+
+# zoxide
+eval "$(zoxide init bash)"
