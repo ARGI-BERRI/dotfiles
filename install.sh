@@ -13,6 +13,7 @@ sudo apt update; sudo apt install -y \
     jq bat duf fd-find fzf
 
 # Install asdf
+export ASDF_DIR="$XDG_DATA_HOME"/asdf
 export ASDF_DATA_DIR="$XDG_DATA_HOME"/asdf
 git clone https://github.com/asdf-vm/asdf.git $ASDF_DATA_DIR --branch v0.14.0
 . "$ASDF_DATA_DIR/asdf.sh"
