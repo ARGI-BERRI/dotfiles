@@ -50,5 +50,6 @@ vim.cmd [[
     hi LineNr guibg=NONE ctermbg=NONE
     hi VertSplit guibg=NONE ctermbg=NONE
     hi Special guibg=NONE ctermbg=NONE
-    hi Identifier guibg=NONE ctermbg=NONE    
+    hi Identifier guibg=NONE ctermbg=NONE
+    hi Comment None
 ]]
