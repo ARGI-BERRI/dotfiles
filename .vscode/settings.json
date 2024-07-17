@@ -2,7 +2,8 @@
     "files.associations": {
         "dot_*": "shellscript",
         "dot_gitconfig": "properties",
+        "config": "properties",
         ".chezmoi*": "properties"
     },
-    "material-icon-theme.files.associations": {},
+    "material-icon-theme.files.associations": {}
 }
