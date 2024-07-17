@@ -38,7 +38,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-mod
 . $CARGO_HOME/env
 
 # Install cargo binaries
-cargo install --locked du-dust eza fd-find procs zoxide
+cargo install --locked du-dust eza procs zoxide
 
 # Install go binaries
 go install github.com/charmbracelet/glow@latest
