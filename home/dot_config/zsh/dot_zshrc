@@ -34,3 +34,6 @@ compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 
 # Load the common alias file
 source ~/.aliases
+
+# use starship to customize
+eval "$(starship init zsh)"

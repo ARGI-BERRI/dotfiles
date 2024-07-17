@@ -43,6 +43,9 @@ cargo install --locked du-dust eza procs zoxide
 # Install go binaries
 go install github.com/charmbracelet/glow@latest
 
+# Install starship
+curl -sS https://starship.rs/install.sh | sh -s -- -y
+
 # Apply dotfiles via chezmoi
 chezmoi init https://github.com/ARGI-BERRI/chezmoi.git
 chezmoi apply

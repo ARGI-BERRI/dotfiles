@@ -1,0 +1,25 @@
+format = "$time $username@$hostname:$directory$all$character"
+
+[time]
+disabled = false
+format = '[\[$time\]](green)'
+
+[character]
+success_symbol = '\$'
+error_symbol = '[\$](bold red)'
+vimcmd_symbol = '[<](green)'
+
+[username]
+show_always = true
+format = "[$user](bold yellow)"
+
+[hostname]
+ssh_only = false
+format = "[$hostname](bold yelllow)"
+
+[git_status]
+ahead = ">"
+behind = "<"
+diverged = "<>"
+renamed = "r"
+deleted = "x"

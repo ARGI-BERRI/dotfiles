@@ -65,3 +65,6 @@ export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
 
 # dotnet
 export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
+
+# starship
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME"/starship/starship.toml
