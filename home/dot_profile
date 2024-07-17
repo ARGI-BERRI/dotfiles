@@ -59,3 +59,9 @@ export PATH="$(go env GOPATH)/bin:$PATH"
 
 # GNU Parallel
 export PARALLEL_HOME="$XDG_CONFIG_HOME"/parallel
+
+# zsh
+export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
+
+# dotnet
+export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
