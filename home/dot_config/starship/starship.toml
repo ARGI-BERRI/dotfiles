@@ -1,8 +1,9 @@
-format = "$time $username@$hostname:$directory$all$character"
+format = "$username in $hostname $localip: $directory\n$character"
+right_format = "$all$time"
 
 [time]
 disabled = false
-format = '[\[$time\]](green)'
+format = '[$time](black)'
 
 [character]
 success_symbol = '\$'
@@ -15,7 +16,12 @@ format = "[$user](bold yellow)"
 
 [hostname]
 ssh_only = false
-format = "[$hostname](bold yelllow)"
+format = "[$hostname](green)"
+
+[localip]
+disabled = false
+ssh_only = false
+format = '[\($localipv4\)](green)'
 
 [git_status]
 ahead = ">"
