@@ -50,4 +50,11 @@ curl -sS https://starship.rs/install.sh | sh -s -- -y
 chezmoi init https://github.com/ARGI-BERRI/chezmoi.git
 chezmoi apply
 
+# Create history files
+mkdir $XDG_STATE_HOME/bash
+mkdir $XDG_STATE_HOME/zsh
+
+touch $XDG_STATE_HOME/bash/history
+touch $XDG_STATE_HOME/zsh/history
+
 echo "Please reload the shell to apply the change"
