@@ -1,0 +1,8 @@
+set autoindent
+set backup
+set boldtext
+set constantshow
+set indicator
+set linenumbers
+set minibar
+set tabsize 4

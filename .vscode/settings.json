@@ -3,6 +3,7 @@
         "dot_*": "shellscript",
         "dot_gitconfig": "properties",
         "config": "properties",
+        "*rc": "properties",
         ".chezmoi*": "properties"
     },
     "material-icon-theme.files.associations": {}

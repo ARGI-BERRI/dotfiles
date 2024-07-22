@@ -68,3 +68,6 @@ export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
 
 # starship
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME"/starship/starship.toml
+
+# screen
+export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
