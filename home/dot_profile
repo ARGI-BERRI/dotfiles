@@ -51,6 +51,7 @@ export CARGO_HOME="$XDG_DATA_HOME"/cargo
 . "$CARGO_HOME/env"
 
 # asdf
+export ASDF_DIR="$XDG_DATA_HOME"/asdf
 export ASDF_DATA_DIR="$XDG_DATA_HOME"/asdf
 . "$ASDF_DATA_DIR/asdf.sh"
 
