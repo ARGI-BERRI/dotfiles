@@ -2,19 +2,19 @@
 size = 16
 
 [font.bold]
-family = "Monaspace Neon"
+family = "MonaspiceNe NFP"
 style = "Bold"
 
 [font.bold_italic]
-family = "Monaspace Neon"
+family = "MonaspiceNe NFP"
 style = "Bold Italic"
 
 [font.italic]
-family = "Monaspace Neon"
+family = "MonaspiceNe NFP"
 style = "Italic"
 
 [font.normal]
-family = "Monaspace Neon"
+family = "MonaspiceNe NFP"
 style = "Regular"
 
 [window.dimensions]
@@ -66,3 +66,6 @@ color = '#ffa066'
 [[colors.indexed_colors]]
 index = 17
 color = '#ff5d62'
+
+[shell]
+program = "byobu"
