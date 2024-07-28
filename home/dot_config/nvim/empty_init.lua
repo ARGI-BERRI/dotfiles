@@ -40,6 +40,7 @@ vim.opt.wildmenu = true
 vim.opt.ttyfast = true
 vim.opt.gdefault = true
 vim.opt.termguicolors = true
+vim.opt.mouse = ""
 
 require("config.lazy")
 
