@@ -46,6 +46,16 @@ go install github.com/charmbracelet/glow@latest
 # Install starship
 curl -sS https://starship.rs/install.sh | sh -s -- -y
 
+# Install sdkman
+export SDKMAN_DIR="$XDG_DATA_HOME"/sdkman
+curl -s "https://get.sdkman.io" | bash
+. "$SDKMAN_DIR/bin/sdkman-init.sh"
+
+sdk install java 21.0.4-librca
+sdk install gradle 8.9
+sdk install maven 3.9.8
+sdk install kotlin 2.0
+
 # Apply dotfiles via chezmoi
 chezmoi init https://github.com/ARGI-BERRI/chezmoi.git
 chezmoi apply
