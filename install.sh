@@ -1,70 +1,122 @@
-#!/bin/sh
+#!/usr/bin/env -S bash -eu
 
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-# Install deps to build Python
-sudo apt update; sudo apt install -y \
-    build-essential libssl-dev zlib1g-dev \
-    libbz2-dev libreadline-dev libsqlite3-dev curl git \
-    libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev \
-    jq bat duf fd-find fzf byobu
+echo "--> Installing packages"
+if [ -e /etc/debian_version ]; then
+    echo "  --> Your OS is Ubuntu or Debian"
+
+    sudo apt-get -qq update
+    sudo apt-get -qq install -y \
+        build-essential libssl-dev zlib1g-dev \
+        libbz2-dev libreadline-dev libsqlite3-dev curl git \
+        libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev \
+        jq bat duf fd-find fzf byobu zsh fish zip unzip neovim
+fi
+
+# TODO: Untested
+if [ -e /etc/fedora-release ]; then
+    echo "  --> Your OS is Fedora"
+
+    # Check updates
+    sudo dnf check-update
+
+    # Install packages
+    sudo dnf install -y \
+        jq bat duf fd-find fzf byobu zsh fish zip unzip neovim
+fi
+
+# TODO: Untested
+if [ -e /etc/arch-release ]; then
+    echo "  --> Your OS is Arch"
+    # Optimizes the mirror reference
+    sudo pacman -g
+
+    # Syncs with repositories
+    sudo pacman -Syy
+
+    # Installs packages
+    sudo pacman --noconfirm -Syu \
+        jq bat duf fd-find fzf byobu zsh fish zip unzip neovim \
+        starship chezmoi
+fi
 
 # Install asdf
+echo "--> Installing asdf"
 export ASDF_DIR="$XDG_DATA_HOME"/asdf
 export ASDF_DATA_DIR="$XDG_DATA_HOME"/asdf
-git clone https://github.com/asdf-vm/asdf.git $ASDF_DATA_DIR --branch v0.14.0
+
+if [ ! -d $ASDF_DATA_DIR ]; then
+    git clone https://github.com/asdf-vm/asdf.git $ASDF_DATA_DIR --branch v0.14.0
+fi
+
 . "$ASDF_DATA_DIR/asdf.sh"
 
 # Install chezmoi
-asdf plugin add chezmoi && asdf install chezmoi 2.48.0 && asdf global chezmoi 2.48.0
+echo "--> Installing chezmoi"
+if [ ! -e /etc/arch-release ]; then
+    asdf plugin add chezmoi >/dev/null
+    asdf install chezmoi 2.48.0 >/dev/null
+    asdf global chezmoi 2.48.0
+fi
 
 # Install golang
-asdf plugin add golang && asdf install golang 1.22.3 && asdf global golang 1.22.3
+echo "  --> Installing Go with asdf"
+asdf plugin add golang >/dev/null
+asdf install golang 1.22.3 >/dev/null
+asdf global golang 1.22.3
 
 # Install Python
-asdf plugin add python && asdf install python 3.12.3 && asdf global python 3.12.3
+echo "  --> Installing Python with asdf"
+asdf plugin add python >/dev/null
+asdf install python 3.12.3 >/dev/null
+asdf global python 3.12.3
 
 # Install Poetry
-asdf plugin add poetry && asdf install poetry 1.8.3 && asdf global poetry 1.8.3
+echo "  --> Installing Poetry with asdf"
+asdf plugin add poetry >/dev/null
+asdf install poetry 1.8.3 >/dev/null
+asdf global poetry 1.8.3
 poetry config virtualenvs.in-project true
 
 # Install Rust
+echo "  --> Installing Rust with asdf"
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
+export RUSTUP_INIT_SKIP_PATH_CHECK="yes"
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y -q --no-modify-path \
+    >/dev/null
 . $CARGO_HOME/env
 
 # Install cargo binaries
-cargo install --locked du-dust eza procs zoxide
+echo "--> Compiling utility commands built by Rust"
+cargo install --quiet --locked du-dust procs zoxide
 
 # Install go binaries
+echo "--> Compiling utilieis commands built by Go"
 go install github.com/charmbracelet/glow@latest
 
 # Install starship
-curl -sS https://starship.rs/install.sh | sh -s -- -y
-
-# Install sdkman
-export SDKMAN_DIR="$XDG_DATA_HOME"/sdkman
-curl -s "https://get.sdkman.io" | bash
-. "$SDKMAN_DIR/bin/sdkman-init.sh"
-
-sdk install java 21.0.4-librca
-sdk install gradle 8.9
-sdk install maven 3.9.8
-sdk install kotlin 2.0
+echo "--> Installing starship (bash / zsh customization)"
+if [ ! -e /etc/arch-release ]; then
+    curl -sS https://starship.rs/install.sh | sh -s -- -y \
+        >/dev/null
+fi
 
 # Apply dotfiles via chezmoi
+echo "--> Installing dotfiles configuration with chezmoi"
 chezmoi init https://github.com/ARGI-BERRI/chezmoi.git
 chezmoi apply
 
 # Create history files
-mkdir $XDG_STATE_HOME/bash
-mkdir $XDG_STATE_HOME/zsh
+echo "--> Creating Bash / Zsh files"
+mkdir -p $XDG_STATE_HOME/bash
+mkdir -p $XDG_STATE_HOME/zsh
 
 touch $XDG_STATE_HOME/bash/history
 touch $XDG_STATE_HOME/zsh/history
 
-echo "Please reload the shell to apply the change"
+echo "--> Please reload the shell to apply the change"
