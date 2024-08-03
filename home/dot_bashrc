@@ -30,7 +30,7 @@ shopt -s xpg_echo
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
+xterm-color | *-256color) color_prompt=yes ;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -42,11 +42,11 @@ force_color_prompt=yes
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
+    if [ -f /usr/share/bash-completion/bash_completion ]; then
+        . /usr/share/bash-completion/bash_completion
+    elif [ -f /etc/bash_completion ]; then
+        . /etc/bash_completion
+    fi
 fi
 
 # Alias definitions.
@@ -63,3 +63,9 @@ if [ -f ~/.bash_local ]; then
 fi
 
 PS1="[\t] \[\]\\e[32m\u@\h\e[1;30m\e[m:\e[1;34m\w\e[m\$ "
+
+# asdf
+. "$ASDF_DATA_DIR/completions/asdf.bash"
+
+# zoxide
+eval "$(zoxide init bash)"
