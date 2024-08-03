@@ -23,10 +23,10 @@ flatpak install -y --or-update flathub \
     net.nokyan.Resources \
     org.gnome.Decibels org.gnome.Loupe org.gnome.Totem \
     org.gnome.Mines org.gnome.Tetravex \
-    com.valvesoftware.Steam com.discordapp.Discord \
     sh.ppy.osu \
     >/dev/null
 
 # NOTE: Spotify from flatpak doesn't support HiDPI environment well
+# NOTE: Discord from flatpak has the font rendering problem
 echo "--> Installing Snap packages"
-snap install spotify >/dev/null
+snap install spotify discord >/dev/null
