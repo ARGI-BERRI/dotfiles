@@ -3,7 +3,6 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias mkdir='mkdir -p'
 
-alias ps='ps --srot=start_time'
 alias which='type -a'
 alias job='jobs -l'
 
