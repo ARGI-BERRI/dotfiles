@@ -29,19 +29,18 @@ if [ -e /etc/fedora-release ]; then
         jq bat duf fd-find fzf byobu zsh fish zip unzip neovim
 fi
 
-# TODO: Untested
 if [ -e /etc/arch-release ]; then
     echo "  --> Your OS is Arch"
-    # Optimizes the mirror reference
-    sudo pacman -g
 
     # Syncs with repositories
     sudo pacman -Syy
 
     # Installs packages
     sudo pacman --noconfirm -Syu \
-        jq bat duf fd-find fzf byobu zsh fish zip unzip neovim \
+        jq bat duf fzf byobu zsh fish zip unzip neovim \
         starship chezmoi
+
+    # TODO: Add fd-find
 fi
 
 # Install asdf
