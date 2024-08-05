@@ -80,9 +80,5 @@ export QT_QPA_PLATFORM=xcb
 # GTK
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 
-# sdkman
-export SDKMAN_DIR="$XDG_DATA_HOME"/sdkman
-. "$SDKMAN_DIR/bin/sdkman-init.sh"
-
 # Scilab
 export SCIHOME="$XDG_STATE_HOME"/scilab
