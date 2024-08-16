@@ -1,5 +1,4 @@
-format = "$username in $hostname $localip: $directory\n$character"
-right_format = "$all$time"
+format = "$username in $hostname $localip: $directory$all$time $character"
 
 [time]
 disabled = false
@@ -29,3 +28,6 @@ behind = "<"
 diverged = "<>"
 renamed = "r"
 deleted = "x"
+
+[fill]
+symbol = " "
