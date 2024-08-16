@@ -19,7 +19,7 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 export PAGER='less'
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 export HISTSIZE=1000

@@ -24,3 +24,5 @@ alias du='dust -p -X .git'
 alias fd='fdfind'
 
 alias ..='cd ..'
+
+alias vim='nvim'
