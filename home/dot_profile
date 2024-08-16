@@ -29,14 +29,14 @@ export HISTCONTROL=ignoreboth
 # GCC
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# readline
-export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
-
 # XDG
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
+
+# readline
+export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
 
 # Rust
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
