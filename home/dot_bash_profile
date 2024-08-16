@@ -1,9 +1,0 @@
-if [ -f ~/.profile ]; then
-    . ~/.profile
-fi
-
-if [ -f ~/.bashrc ]; then
-    . ~/.bashrc
-fi
-
-export HISTFILE="$XDG_STATE_HOME/bash/history"
