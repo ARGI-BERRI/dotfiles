@@ -1,13 +1,8 @@
-format = "$username in $hostname $localip: $directory$all$time $character"
+format = '\[$time\] $username in $hostname $localip: $directory$all $character'
 
 [time]
 disabled = false
 format = '[$time](gray)'
-
-[character]
-success_symbol = '\$'
-error_symbol = '[\$](bold red)'
-vimcmd_symbol = '[<](green)'
 
 [username]
 show_always = true
@@ -21,13 +16,3 @@ format = "[$hostname](green)"
 disabled = false
 ssh_only = false
 format = '[\($localipv4\)](green)'
-
-[git_status]
-ahead = ">"
-behind = "<"
-diverged = "<>"
-renamed = "r"
-deleted = "x"
-
-[fill]
-symbol = " "
