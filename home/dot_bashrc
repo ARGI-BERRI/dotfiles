@@ -65,7 +65,7 @@ if [ -f ~/.bash_local ]; then
     . ~/.bash_local
 fi
 
-PS1="[\t] \[\]\\e[32m\u@\h\e[1;30m\e[m:\e[1;34m\w\e[m\$ "
+PS1="[\t] \[\e[32m\]\u@\h\[\e[1;30m\e[m\]:\[\e[1;34m\]\w\[\e[m\]\$ "
 
 # asdf
 . "$ASDF_DATA_DIR/completions/asdf.bash"
