@@ -75,3 +75,7 @@ eval "$(zoxide init bash)"
 
 # fzf
 eval "$(fzf --bash)"
+
+# starship
+eval "$(starship init bash)"
+eval "$(starship completions bash)"
