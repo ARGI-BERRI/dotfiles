@@ -24,13 +24,13 @@ if [ -e /etc/debian_version ]; then
         | bash > /dev/null 2>&1
 
     # Install utilities using cargo
-    cargo binstall du-dust zoxide eza
+    cargo binstall -y du-dust zoxide eza
 
     # Install chezmoi
     sh -c "$(curl -fsLS get.chezmoi.io/lb)"
 
     # Install starship
-    curl -sS https://starship.rs/install.sh | sh
+    curl -sS https://starship.rs/install.sh | sh -s -- --yes
 
     # Install uv
     curl -LsSf https://astral.sh/uv/install.sh | sh
