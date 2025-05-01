@@ -51,8 +51,8 @@ if [ -e /etc/arch-release ]; then
     pacman --noconfirm -Syu \
         git curl wget zip unzip \
         rustup uv poetry gcc \
-        neovim jq starship chezmoi\
-        bat fd  dust zoxide eza fzf
+        neovim jq starship chezmoi \
+        bat fd dust zoxide eza fzf
 
     rustup default stable
     uv python install 3.12 3.13
