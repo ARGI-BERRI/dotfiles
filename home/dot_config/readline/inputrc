@@ -1,3 +1,5 @@
+# shellcheck disable=SC2148
+
 # Document: https://wiki.archlinux.jp/index.php/Readline
 
 set completion-ignore-case On

@@ -1,3 +1,5 @@
+# shellcheck disable=SC2148,SC2121
+
 set autoindent
 set backup
 set boldtext
