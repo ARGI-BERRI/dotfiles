@@ -9,7 +9,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 PATH="$HOME/.local/bin:$PATH"
 
 if [ -e /etc/debian_version ]; then
-    sudo add-apt-repository ppa:neovim-ppa/stable
+    sudo add-apt-repository -y ppa:neovim-ppa/stable
     sudo apt install -y \
         git curl wget zip unzip \
         gcc pipx \
@@ -35,8 +35,8 @@ if [ -e /etc/arch-release ]; then
     uv python install 3.12 3.13
 fi
 
-chezmoi init https://github.com/ARGI-BERRI/chezmoi.git
-chezmoi apply
+~/.local/bin/mise x chezmoi -- chezmoi init https://github.com/ARGI-BERRI/chezmoi.git
+~/.local/bin/mise x chezmoi -- chezmoi apply
 
 # Create history files
 mkdir -p "$XDG_STATE_HOME"/bash
