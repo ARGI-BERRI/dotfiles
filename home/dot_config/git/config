@@ -1,8 +1,3 @@
-[user]
-	name = ARGI-BERRI
-	email = me@endroit.net
-	signingkey = ~/.ssh/gh-argiberri.pub
-
 [commit]
 	gpgsign = true
 
