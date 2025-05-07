@@ -13,15 +13,13 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+alias wget=wget --hsts-file='$XDG_DATA_HOME/wget-hsts'
 
 alias ls='eza -F'
 alias ll='eza --header -l -F'
 alias lt='eza --header -l -F -T'
 
-alias bat='batcat'
 alias du='dust -p -X .git'
-alias fd='fdfind'
 
 alias ..='cd ..'
 
