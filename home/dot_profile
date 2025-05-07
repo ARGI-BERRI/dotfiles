@@ -21,35 +21,23 @@ fi
 export PAGER='less'
 export EDITOR='nvim'
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-export HISTSIZE=1000
-export HISTFILESIZE=2000
-export HISTCONTROL=ignoreboth
-
-# GCC
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
 # XDG
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-# readline
+# GNU readline
 export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
-
-# Rust
-export CARGO_HOME="$XDG_DATA_HOME"/cargo
-PATH="$CARGO_HOME/bin:$PATH"
 
 # GNU Parallel
 export PARALLEL_HOME="$XDG_CONFIG_HOME"/parallel
 
+# GNU Compiler Collection
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
 # zsh
 export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
-
-# dotnet
-export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
 
 # starship
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME"/starship/starship.toml
@@ -57,24 +45,23 @@ export STARSHIP_CONFIG="$XDG_CONFIG_HOME"/starship/starship.toml
 # screen
 export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
 
-# Qt
-export QT_SCALE_FACTOR=1
-export QT_QPA_PLATFORM=xcb
-
-# GTK
-export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
-
-# Scilab
-export SCIHOME="$XDG_STATE_HOME"/scilab
-
 # fzf
-export PATH="$XDG_DATA_HOME/fzf/bin:$PATH"
 export FZF_DEFAULT_OPTS="--border --reverse"
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+        . "$HOME/.bashrc"
     fi
+fi
+
+# include .aliases if it exists
+if [ -f ~/.aliases ]; then
+    . "$HOME/.aliases"
+fi
+
+# include .profile_local if it exists
+if [ -f "$HOME/.profile_local" ]; then
+    . "$HOME/.profile_local"
 fi

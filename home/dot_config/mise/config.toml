@@ -1,0 +1,9 @@
+[tools]
+bat = "latest"
+chezmoi = "latest"
+dust = "latest"
+eza = "latest"
+fzf = "latest"
+jq = "latest"
+starship = "latest"
+zoxide = "latest"
