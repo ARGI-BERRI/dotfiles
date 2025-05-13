@@ -67,7 +67,9 @@ fi
 PS1="[\t] \[\e[32m\]\u@\h\[\e[1;30m\e[m\]:\[\e[1;34m\]\w\[\e[m\]\$ "
 
 # mise
-eval "$(mise activate bash)"
+if [ -x "$(command -v mise)" ]; then
+    eval "$(mise activate bash)"
+fi
 
 # zoxide
 eval "$(zoxide init bash)"
