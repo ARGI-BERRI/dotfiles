@@ -38,9 +38,6 @@ export PARALLEL_HOME="$XDG_CONFIG_HOME"/parallel
 # GNU Compiler Collection
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# zsh
-export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
-
 # starship
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME"/starship/starship.toml
 
