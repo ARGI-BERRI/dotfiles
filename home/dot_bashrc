@@ -40,7 +40,6 @@ shopt -s dirspell
 shopt -s dotglob
 shopt -s execfail
 shopt -s extglob
-shopt -s failglob
 shopt -s nocaseglob
 shopt -s nocasematch
 shopt -s nullglob
