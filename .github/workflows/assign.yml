@@ -8,7 +8,7 @@ on:
 jobs:
   assign:
     name: Add Author to Assignees
-    if: endsWith(github.actor, '[bot]') == false && github.event.pull_request.assignee == null
+    if: endsWith(github.actor, '[bot]') == false && github.event.pull_request.assignees.length == 0
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
