@@ -26,6 +26,9 @@ FROM ubuntu:noble
 RUN useradd -m -s /bin/bash ubuntu && \
     mkdir -p /home/ubuntu && \
     chown -R ubuntu:ubuntu /home/ubuntu
+RUN useradd -m -s /bin/bash ubuntu && \
+    mkdir -p /home/ubuntu && \
+    chown -R ubuntu:ubuntu /home/ubuntu
 USER ubuntu
 WORKDIR /home/ubuntu
 
