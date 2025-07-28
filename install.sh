@@ -25,7 +25,7 @@ if [ -e /etc/debian_version ]; then
     curl -s https://mise.run | sh
     ~/.local/bin/mise install aws bat chezmoi dust eza fzf jq starship zoxide gh usage
 
-    # Install uv and Python tools
+    # Install Python tools (uv for managing Python versions, mypy, pytest, ruff)
     pipx install uv mypy pytest ruff
     uv python install 3.12 3.13
 
