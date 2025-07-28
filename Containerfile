@@ -23,6 +23,9 @@ RUN /home/ubuntu/.local/bin/mise x chezmoi -- chezmoi apply
 
 FROM ubuntu:noble
 
+RUN useradd -m -s /bin/bash ubuntu && \
+    mkdir -p /home/ubuntu && \
+    chown -R ubuntu:ubuntu /home/ubuntu
 USER ubuntu
 WORKDIR /home/ubuntu
 
