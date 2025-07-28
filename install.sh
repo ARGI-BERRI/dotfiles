@@ -6,6 +6,12 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
+# Create history files
+mkdir -p "$XDG_STATE_HOME"/bash
+mkdir -p "$XDG_STATE_HOME"/zsh
+touch "$XDG_STATE_HOME"/bash/history
+touch "$XDG_STATE_HOME"/zsh/history
+
 PATH="$HOME/.local/bin:$PATH"
 
 if [ -e /etc/debian_version ]; then
@@ -17,29 +23,26 @@ if [ -e /etc/debian_version ]; then
 
     # Install mise
     curl -s https://mise.run | sh
-    ~/.local/bin/mise install aws bat chezmoi dust eza fzf jq starship zoxide
+    ~/.local/bin/mise install aws bat chezmoi dust eza fzf jq starship zoxide gh usage
 
-    # Install uv and poetrymise ac
-    pipx install uv poetry mypy pytest ruff
+    # Install uv and Python tools
+    pipx install uv mypy pytest ruff
     uv python install 3.12 3.13
+
+    ~/.local/bin/mise x chezmoi -- chezmoi init https://github.com/ARGI-BERRI/chezmoi.git
+    ~/.local/bin/mise x chezmoi -- chezmoi apply
 fi
 
 if [ -e /etc/arch-release ]; then
     pacman -Syy
     pacman --noconfirm -Syu \
         git curl wget zip unzip \
-        uv poetry gcc \
+        uv poetry mise gcc \
         neovim jq starship chezmoi \
-        bat dust zoxide eza fzf
+        bat dust zoxide eza fzf usage
 
     uv python install 3.12 3.13
+
+    chezmoi init https://github.com/ARGI-BERRI/chezmoi.git
+    chezmoi apply
 fi
-
-~/.local/bin/mise x chezmoi -- chezmoi init https://github.com/ARGI-BERRI/chezmoi.git
-~/.local/bin/mise x chezmoi -- chezmoi apply
-
-# Create history files
-mkdir -p "$XDG_STATE_HOME"/bash
-mkdir -p "$XDG_STATE_HOME"/zsh
-touch "$XDG_STATE_HOME"/bash/history
-touch "$XDG_STATE_HOME"/zsh/history
