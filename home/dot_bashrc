@@ -57,11 +57,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# include .bash_local if it exists
-if [ -f ~/.bash_local ]; then
-    . ~/.bash_local
-fi
-
 # custom prompt
 PS1="[\t] \[\e[32m\]\u@\h\[\e[1;30m\e[m\]:\[\e[1;34m\]\w\[\e[m\]\$ "
 
@@ -79,3 +74,8 @@ eval "$(fzf --bash)"
 # starship
 eval "$(starship init bash)"
 eval "$(starship completions bash)"
+
+# include .bash_local if it exists
+if [ -f ~/.bash_local ]; then
+    . ~/.bash_local
+fi
