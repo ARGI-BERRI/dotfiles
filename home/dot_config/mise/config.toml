@@ -1,12 +1,19 @@
 [tools]
 aws = "latest"
+claude = "latest"
 bat = "latest"
+btop = "latest"
 chezmoi = "latest"
 dust = "latest"
 eza = "latest"
 fzf = "latest"
+gh = "latest"
 jq = "latest"
+kubectl = "latest"
+kubeseal = "latest"
+node = "lts"
 starship = "latest"
+usage = "latest"
 zoxide = "latest"
 
 [settings]
