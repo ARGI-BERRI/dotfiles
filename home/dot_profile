@@ -20,7 +20,7 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-export PAGER='less'
+export PAGER='less -R'
 export EDITOR='nvim'
 
 # XDG
