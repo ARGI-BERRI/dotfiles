@@ -8,12 +8,11 @@ alias mkdir='mkdir -p'
 alias which='type -a'
 alias job='jobs -l'
 
-alias du='du -kh'
 alias df='df -kTh'
 
 alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+alias fgrep='grep -F --color=auto'
+alias egrep='grep -E --color=auto'
 
 alias wget=wget --hsts-file='$XDG_DATA_HOME/wget-hsts'
 
