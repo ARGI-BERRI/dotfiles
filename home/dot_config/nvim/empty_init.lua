@@ -2,7 +2,6 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 vim.opt.encoding = 'utf-8'
-vim.scriptencoding = 'utf-8'
 
 vim.opt.number = true
 
@@ -37,7 +36,6 @@ vim.opt.hlsearch = true
 
 -- misc
 vim.opt.wildmenu = true
-vim.opt.ttyfast = true
 vim.opt.gdefault = true
 vim.opt.termguicolors = true
 vim.opt.mouse = ""

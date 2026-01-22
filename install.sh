@@ -16,13 +16,16 @@ PATH="$HOME/.local/bin:$PATH"
 
 if [ -e /etc/debian_version ]; then
     sudo add-apt-repository -y ppa:neovim-ppa/stable
-    sudo apt install -y \
+    sudo apt-get update
+    sudo apt-get install -y \
         git curl wget zip unzip \
         gcc pipx \
         neovim
 
     # Install mise
-    curl -s https://mise.run | sh
+    curl -fsSL https://mise.run -o /tmp/mise-install.sh
+    bash /tmp/mise-install.sh
+    rm /tmp/mise-install.sh
     ~/.local/bin/mise install aws bat chezmoi dust eza fzf jq starship zoxide gh usage
 
     # Install Python tools (uv for managing Python versions, mypy, pytest, ruff)
