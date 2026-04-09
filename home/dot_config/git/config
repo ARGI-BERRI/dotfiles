@@ -8,4 +8,4 @@
 	defaultBranch = main
 
 [core]
-    excludesFile = ~/.config/gitignore_global
+	excludesFile = ~/.config/git/gitignore_global
