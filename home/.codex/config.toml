@@ -1,0 +1,11 @@
+#:schema https://developers.openai.com/codex/config-schema.json
+
+# Model configuration
+model = "gpt-5.5"
+model_reasoning_effort = "high"
+model_context_window = 1000000
+model_auto_compact_token_limit = 900000
+personality = "friendly"
+
+# Permissions
+default_permissions = ":workspace"

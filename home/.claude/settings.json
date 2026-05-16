@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "language": "japanese",
+  "autoUpdatesChannel": "stable",
+  "effortLevel": "high",
+  "showThinkingSummaries": true,
+  "alwaysThinkingEnabled": true,
+  "permissions": {
+    "allow": [
+      "Bash(ls *)",
+      "Bash(wc *)"
+    ],
+    "deny": [
+      "Read(~/.netrc)",
+      "Read(~/.ssh/**)",
+      "Read(~/.aws/**)",
+      "Read(~/.profile_local)",
+      "Read(~/.bash_local)",
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)",
+      "Read(./secret/**)",
+      "Write(~/.netrc)",
+      "Write(~/.ssh/**)",
+      "Write(~/.aws/**)",
+      "Write(~/.profile_local)",
+      "Write(~/.bash_local)",
+      "Write(./.env)",
+      "Write(./.env.*)",
+      "Write(./secrets/**)",
+      "Write(./secret/**)"
+    ],
+    "ask": [
+      "WebFetch",
+      "Bash(wget *)",
+      "Bash(curl *)",
+      "Bash(ping *)",
+      "Bash(nc *)",
+      "Bash(ssh *)",
+      "Bash(scp *)",
+      "Bash(sftp *)",
+      "Bash(rm -rf *)",
+      "Bash(env)",
+      "Bash(printenv)"
+    ]
+  },
+  "env": {
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
+    "DISABLE_FEEDBACK_COMMAND": "0",
+    "DISABLE_TELEMETRY": "0"
+  }
+}
