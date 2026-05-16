@@ -45,11 +45,11 @@ vim.g.mapleader = " "
 
 require("config.lazy")
 
--- <leader>r to run 'uv run python %' when the file type is Python
+-- <leader>rr to run 'uv run python %' when the file type is Python
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "python",
   callback = function()
-    vim.keymap.set("n", "<leader>r", function()
+    vim.keymap.set("n", "<leader>rr", function()
       local file = vim.fn.expand("%:p")
       vim.cmd("botright split | terminal uv run python " .. vim.fn.shellescape(file))
       vim.cmd("startinsert")
