@@ -40,7 +40,22 @@ vim.opt.gdefault = true
 vim.opt.termguicolors = true
 vim.opt.mouse = ""
 
+-- set leader key as Space
+vim.g.mapleader = " "
+
 require("config.lazy")
+
+-- <leader>rr to run 'uv run python %' when the file type is Python
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "python",
+  callback = function()
+    vim.keymap.set("n", "<leader>rr", function()
+      local file = vim.fn.expand("%:p")
+      vim.cmd("botright split | terminal uv run python " .. vim.fn.shellescape(file))
+      vim.cmd("startinsert")
+    end, { buffer = true, desc = "uv run python %" })
+  end,
+})
 
 -- colorscheme
 vim.cmd [[
