@@ -38,7 +38,15 @@
       "Bash(* ~/.bash_local*)",
       "Bash(* ./.env*)",
       "Bash(* ./secrets/**)",
-      "Bash(* ./secret/**)"
+      "Bash(* ./secret/**)",
+      "Bash(cat ~/.netrc*)",
+      "Bash(cat ~/.ssh/**)",
+      "Bash(cat ~/.aws/**)",
+      "Bash(cat ~/.profile_local*)",
+      "Bash(cat ~/.bash_local*)",
+      "Bash(cat ./.env*)",
+      "Bash(cat ./secrets/**)",
+      "Bash(cat ./secret/**)"
     ],
     "ask": [
       "WebFetch",
