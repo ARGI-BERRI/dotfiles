@@ -4,10 +4,14 @@ return {
   dependencies = { "saghen/blink.cmp" },
 
   config = function()
+    local pyright_cmd = vim.fn.executable("uv") == 1
+        and { "uv", "run", "pyright-langserver", "--stdio" }
+      or { "pyright-langserver", "--stdio" }
+
     -- Pyright for Python LSP
     vim.lsp.config("pyright", {
       capabilities = require("blink.cmp").get_lsp_capabilities(),
-      cmd = { "uv", "run", "pyright-langserver", "--stdio" },
+      cmd = pyright_cmd,
     })
     vim.lsp.enable("pyright")
 
