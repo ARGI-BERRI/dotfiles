@@ -25,7 +25,6 @@ if [ -e /etc/debian_version ]; then
     rm /tmp/mise-install.sh
 
     # Install chezmoi
-    ~/.local/bin/mise use chezmoi
     ~/.local/bin/mise x chezmoi -- chezmoi init https://github.com/ARGI-BERRI/chezmoi.git
     ~/.local/bin/mise x chezmoi -- chezmoi apply
 
