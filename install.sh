@@ -32,7 +32,7 @@ if [ -e /etc/debian_version ]; then
     # Install tools based on ~/.config/mise/config.toml
     ~/.local/bin/mise install
 
-    # Install Python tools (uv for managing Python versions, mypy, pytest, ruff)
+    # Install Python tools (uv for managing Python versions, ruff, pytest, pyright)
     ~/.local/bin/mise x uv -- uv python install 3.12 3.13
     ~/.local/bin/mise x uv -- uv tool install ruff
     ~/.local/bin/mise x uv -- uv tool install pytest
