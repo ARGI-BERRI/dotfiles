@@ -23,16 +23,20 @@ if [ -e /etc/debian_version ]; then
     curl -fsSL https://mise.run -o /tmp/mise-install.sh
     bash /tmp/mise-install.sh
     rm /tmp/mise-install.sh
-    ~/.local/bin/mise use
 
-    # Install Python tools (uv for managing Python versions, mypy, pytest, ruff)
-    uv python install 3.12 3.13
-    uv tool install ruff
-    uv tool install pytest
-    uv tool install pyright
-
+    # Install chezmoi
+    ~/.local/bin/mise use chezmoi
     ~/.local/bin/mise x chezmoi -- chezmoi init https://github.com/ARGI-BERRI/chezmoi.git
     ~/.local/bin/mise x chezmoi -- chezmoi apply
+
+    # Install tools based on ~/.config/mise/config.toml
+    ~/.local/bin/mise install
+
+    # Install Python tools (uv for managing Python versions, mypy, pytest, ruff)
+    ~/.local/bin/mise x uv -- uv python install 3.12 3.13
+    ~/.local/bin/mise x uv -- uv tool install ruff
+    ~/.local/bin/mise x uv -- uv tool install pytest
+    ~/.local/bin/mise x uv -- uv tool install pyright
 fi
 
 #
