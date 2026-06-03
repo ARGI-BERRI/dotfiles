@@ -15,37 +15,40 @@ touch "$XDG_STATE_HOME"/zsh/history
 PATH="$HOME/.local/bin:$PATH"
 
 if [ -e /etc/debian_version ]; then
-    sudo add-apt-repository -y ppa:neovim-ppa/stable
     sudo apt-get update
     sudo apt-get install -y \
-        git curl wget zip unzip \
-        gcc pipx \
-        neovim
+        git curl wget zip unzip gcc
 
     # Install mise
     curl -fsSL https://mise.run -o /tmp/mise-install.sh
     bash /tmp/mise-install.sh
     rm /tmp/mise-install.sh
-    ~/.local/bin/mise install aws bat chezmoi dust eza fzf jq starship zoxide gh usage
+    ~/.local/bin/mise use
 
     # Install Python tools (uv for managing Python versions, mypy, pytest, ruff)
-    pipx install uv mypy pytest ruff
     uv python install 3.12 3.13
+    uv tool install ruff
+    uv tool install pytest
+    uv tool install pyright
 
     ~/.local/bin/mise x chezmoi -- chezmoi init https://github.com/ARGI-BERRI/chezmoi.git
     ~/.local/bin/mise x chezmoi -- chezmoi apply
 fi
 
-if [ -e /etc/arch-release ]; then
-    pacman -Syy
-    pacman --noconfirm -Syu \
-        git curl wget zip unzip \
-        uv poetry mise gcc \
-        neovim jq starship chezmoi \
-        bat dust zoxide eza fzf usage
-
-    uv python install 3.12 3.13
-
-    chezmoi init https://github.com/ARGI-BERRI/chezmoi.git
-    chezmoi apply
-fi
+#
+# NOTE: 2026-06-03: We no longer support Arch Linux
+#
+# if [ -e /etc/arch-release ]; then
+#     pacman -Syy
+#     pacman --noconfirm -Syu \
+#         git curl wget zip unzip \
+#         uv poetry mise gcc \
+#         neovim jq starship chezmoi \
+#         bat dust zoxide eza fzf usage
+#
+#     uv python install 3.12 3.13
+#
+#     chezmoi init https://github.com/ARGI-BERRI/chezmoi.git
+#     chezmoi apply
+# fi
+#
