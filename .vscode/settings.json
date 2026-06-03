@@ -1,12 +1,13 @@
 {
-    "files.associations": {
-        "dot_*": "shellscript",
-        "dot_gitconfig": "properties",
-        "config": "properties",
-        "*rc": "shellscript",
-        ".chezmoi*": "properties"
-    },
-    "material-icon-theme.folders.associations": {
-        "dot_config": "config"
-    }
+  "files.associations": {
+    "dot_*": "shellscript",
+    "dot_gitconfig": "properties",
+    "config": "properties",
+    "*rc": "shellscript",
+    ".chezmoi*": "properties",
+    "gitignore_global": "gitignore"
+  },
+  "material-icon-theme.folders.associations": {
+    "dot_config": "config"
+  }
 }
